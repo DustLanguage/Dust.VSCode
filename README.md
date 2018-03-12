@@ -1,6 +1,6 @@
 # Visual Studio Code Extension for Dust [![Gitter room](https://badges.gitter.im/DustLanguage.png)](https://gitter.im/DustLanguage)
 
-VSCode extension for Dust programming language.
+VS Code extension for Dust programming language.
 
 ## Introduction
 
