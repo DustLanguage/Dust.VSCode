@@ -12,22 +12,21 @@
     "expression": {
       "name": "meta.expression.sqf",
       "patterns": [
-        { "include": "#statement" }
+        { "include": "#statement" },
+        { "include": "#typeof" },
+        { "include": "#literal" },
+        { "include": "#delete" }
       ]
     },
     "statement": {
       "patterns": [
         { "include": "#comment" },
-        { "include": "#typeof" },
         { "include": "#functionDeclaration" },
         { "include": "#return" },
-        { "include": "#literal" },
-        { "include": "#propertyDeclaration" },
-        {
-          "include": "#functionParamsList"
-        }
+        { "include": "#propertyDeclaration" }
       ]
     },
+  
     "comment": {
       "name": "comment",
       "patterns": [
@@ -41,21 +40,15 @@
       "name": "comment.block"
     },
     "commentLine": {
-      "match": "#",
+      "match": "#.*",
       "name": "comment.line"
     },
     "literal": {
       "name": "comment",
       "patterns": [
-        { 
-          "include": "#literalConstants" 
-        },
-        { 
-          "include": "#literalString" 
-        },
-        { 
-          "include": "#literalNumeric" 
-        }
+        { "include": "#literalConstants" },
+        { "include": "#literalString" },
+        { "include": "#literalNumeric" }
       ]
     },
     "literalConstants": {
@@ -64,8 +57,8 @@
     },
     "literalString": {
       "name": "string",
-      "begin": "\"",
-      "end": "\""
+      "begin": "(\"|\\')", 
+      "end": "(\"|\\')"
     },
     "literalNumeric": {
       "name": "constant.numeric",
@@ -78,14 +71,11 @@
       "end": ""
     },
     "propertyDeclaration": {
-      "begin": "(?<!\\.|\\$)\\b(let\\b|let\\s*mut\\b)\\s+(?:([A-Za-z$_][A-Za-z$_0-9]*)\\s*\\.\\s*)?([A-Za-z$_][A-Za-z$_0-9]*)",
+      "begin": "(?<!\\.|\\$)\\b(let\\s*mut\\b|let\\b)\\s+(?:([A-Za-z$_][A-Za-z$_0-9]*)\\s*\\.\\s*)?([A-Za-z$_][A-Za-z$_0-9]*)",
       "beginCaptures": {
         "1": {
           "name": "storage.type.function.js"
-        },
-        "3": {
-          "name": "entity.name.type"
-        }
+        }   
       },
       "end": ""
     },
@@ -93,8 +83,12 @@
       "name": "constant.language",
       "match": "(\\s*)typeof\\b"
     },
+    "delete": {
+      "name": "constant.language",
+      "match": "(\\s*)delete\\b"
+    },
     "functionDeclaration": {
-      "begin": "(?<!\\.|\\$)\\b(|private\\b\\s+|public\\b\\s+|internal\\b\\s+)(let\\b)\\s+(fn\\b)\\s+(?:([A-Za-z$_][A-Za-z$_0-9]*)\\s*\\.\\s*)?([A-Za-z$_][A-Za-z$_0-9]*)\\s*",
+      "begin": "(?:(?<!\\.|\\$)\\b(|private\\b\\s+|public\\b\\s+|internal\\b\\s+)(let\\b)\\s+(fn\\b)\\s+(?:([A-Za-z$_][A-Za-z$_0-9]*)\\s*\\.\\s*)?([A-Za-z$_][A-Za-z$_0-9]*)\\s*\\(?|\\,\\s+|\\,)(mut\\s+|)([A-Za-z$_][A-Za-z$_0-9]*)?",
 			"beginCaptures": {
 				"1": {
 					"name": "storage.modifier.async.js"
@@ -108,23 +102,8 @@
 				"4": {
 					"name": "meta.definition.function.js entity.name.function.js"
         },
-        "5": {
-          "name": "entity.name.type"
-        },
         "6": {
-          "name": "entity.name.type"
-        }
-      },
-      "end": ""
-    },
-    "functionParamsList": {
-      "begin": "(\\(|\\,\\s+|\\,)(mut\\s+|)([A-Za-z$_][A-Za-z$_0-9]*)",
-      "beginCaptures": {
-        "2": {
           "name": "storage.modifier.async.js"
-        },
-        "3": {
-          "name": "entity.name.type"
         }
       },
       "end": ""
