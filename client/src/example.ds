@@ -1,0 +1,33 @@
+#*
+
+  VS Code Dust Extension: Test File  
+
+*#
+
+# Constants
+let boolean = false
+let mut constantMultiplier = 12578.89
+let mut primeNumber = 125789
+let mut expressionString = "happy"
+
+# Functions
+private let fn changeCurrentExpression(mut newExpression, mut oldExpression) {
+  expressionString = newExpression;
+  println("Expression changed to: " + newExpression);
+}
+
+internal let fn changeCurrentExpression(mut newExpression, mut oldExpression) {
+  expressionString = newExpression;
+  println("Expression changed to: " + newExpression);
+}
+
+public let fn changeCurrentExpression(mut newExpression, mut oldExpression) {
+  expressionString = newExpression;
+  println("Expression changed to: " + newExpression);
+}
+
+let fn main {
+  println("Current expression: "+expressionString);
+  changeCurrentExpression("sad");
+  println("New expression: "+expressionString);  
+}

@@ -18,8 +18,13 @@
 		"watch:server": "cd server && npm run installServer && cd .. && tsc -w -p server/tsconfig.json"
 	},
 	"devDependencies": {
+		"@types/denodeify": "^1.2.31",
 		"@types/mocha": "^2.2.42",
 		"@types/node": "^6.0.88",
 		"typescript": "^2.5.2"
+	},
+	"dependencies": {
+		"denodeify": "^1.2.1",
+		"vscode": "^1.1.13"
 	}
 }
