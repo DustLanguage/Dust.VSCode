@@ -11,23 +11,19 @@ let mut primeNumber = 125789
 let mut expressionString = "happy"
 
 # Functions
-private let fn changeCurrentExpression(mut newExpression, mut oldExpression) {
-  expressionString = newExpression;
-  println("Expression changed to: " + newExpression);
+private let fn changeCurrentExpression(mut newExpression, mut oldExpression2) {
+  expressionString = newExpression
+
 }
 
 internal let fn changeCurrentExpression(mut newExpression, mut oldExpression) {
-  expressionString = newExpression;
-  println("Expression changed to: " + newExpression);
+  expressionString = newExpression
 }
 
 public let fn changeCurrentExpression(mut newExpression, mut oldExpression) {
-  expressionString = newExpression;
-  println("Expression changed to: " + newExpression);
+  expressionString = newExpression
 }
 
 let fn main {
-  println("Current expression: "+expressionString);
-  changeCurrentExpression("sad");
-  println("New expression: "+expressionString);  
+  changeCurrentExpression("sad", "happy")
 }

@@ -1,17 +1,23 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "e9ba54e1efae6aa66e865209e978fa404d9c2e2c"
+    "signature": "c8d0badf4cd2a72f1f69096df747d5c071d87fe2"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.0": {
       "Dust.LanguageServer/1.0.0": {
         "dependencies": {
+          "Dust": "1.0.0",
           "LanguageServer": "1.0.0"
         },
         "runtime": {
           "Dust.LanguageServer.dll": {}
+        }
+      },
+      "Antlr4.Runtime.Standard/4.7.1.1": {
+        "runtime": {
+          "lib/netstandard1.3/Antlr4.Runtime.Standard.dll": {}
         }
       },
       "Matarillo.IO/1.0.0": {
@@ -392,6 +398,15 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "Dust/1.0.0": {
+        "dependencies": {
+          "Antlr4.Runtime.Standard": "4.7.1.1",
+          "LanguageServer": "1.0.0"
+        },
+        "runtime": {
+          "Dust.dll": {}
+        }
+      },
       "LanguageServer/1.0.0": {
         "dependencies": {
           "Matarillo.IO": "1.0.0",
@@ -408,6 +423,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Antlr4.Runtime.Standard/4.7.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MLfYNoV/Xhurvv1Jo704YsOOZ3UPnc12RrRjUx5bJ4kO/xLKhK9rnSvZOv5nq6ZP+lckiigw6FMjNXCbzUxaWQ==",
+      "path": "antlr4.runtime.standard/4.7.1.1",
+      "hashPath": "antlr4.runtime.standard.4.7.1.1.nupkg.sha512"
     },
     "Matarillo.IO/1.0.0": {
       "type": "package",
@@ -702,6 +724,11 @@
       "sha512": "sha512-lJ8AxvkX7GQxpC6GFCeBj8ThYVyQczx2+f/cWHJU8tjS7YfI6Cv6bon70jVEgs2CiFbmmM8b9j1oZVx0dSI2Ww==",
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
+    },
+    "Dust/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "LanguageServer/1.0.0": {
       "type": "project",
